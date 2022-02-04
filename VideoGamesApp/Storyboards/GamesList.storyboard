@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O70-BY-Gys">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Games List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="GamesListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="GamesListViewController" customModule="VideoGamesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vZ-It-bPH" userLabel="Top Games Container View">
+                                <rect key="frame" x="10" y="98" width="394" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Bdr-fY-tYK"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="DZc-AN-3oi" kind="embed" id="xDe-bw-UsD"/>
+                                </connections>
+                            </containerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bPG-Bq-jJA">
+                                <rect key="frame" x="149" y="353" width="116" height="26"/>
+                                <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="tintColor"/>
+                            </pageControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cMA-QB-ozh" userLabel="Games Collection View">
+                                <rect key="frame" x="0.0" y="384" width="414" height="429"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2eh-cA-PYC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cMA-QB-ozh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="AOA-pD-K2g"/>
+                            <constraint firstItem="cMA-QB-ozh" firstAttribute="top" secondItem="bPG-Bq-jJA" secondAttribute="bottom" constant="5" id="Avt-k1-gII"/>
+                            <constraint firstItem="4vZ-It-bPH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="BRX-0x-iLx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4vZ-It-bPH" secondAttribute="trailing" constant="10" id="TAn-JF-BDc"/>
+                            <constraint firstItem="bPG-Bq-jJA" firstAttribute="top" secondItem="4vZ-It-bPH" secondAttribute="bottom" constant="5" id="YI5-RK-6JK"/>
+                            <constraint firstItem="4vZ-It-bPH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ZqG-Sd-QPI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cMA-QB-ozh" secondAttribute="trailing" id="eVb-Wg-95o"/>
+                            <constraint firstItem="cMA-QB-ozh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ifE-f3-nJh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cMA-QB-ozh" secondAttribute="bottom" id="uUj-x5-aKb"/>
+                            <constraint firstItem="bPG-Bq-jJA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="xLa-Ld-l6r"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AOA-pD-K2g"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="wyT-be-mzI"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gamesCVTopToPageControlBottomConstraint" destination="Avt-k1-gII" id="bUK-ue-Mx3"/>
+                        <outlet property="gamesCVTopToSafeAreaTopConstraint" destination="AOA-pD-K2g" id="d0q-zy-tQM"/>
+                        <outlet property="gamesCollectionView" destination="cMA-QB-ozh" id="GLT-bt-yrD"/>
+                        <outlet property="pageControl" destination="bPG-Bq-jJA" id="iFb-f5-fcm"/>
+                        <outlet property="topGamesContainer" destination="4vZ-It-bPH" id="8Yj-mN-nyQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Onk-Xj-32n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O70-BY-Gys" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" id="Yp1-Ty-Cwz"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4b0-4B-HsQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="w2h-xa-J7f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FNW-9H-Dt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
+        </scene>
+        <!--Top Games View Controller-->
+        <scene sceneID="uXE-rD-jWa">
+            <objects>
+                <viewController id="DZc-AN-3oi" customClass="TopGamesViewController" customModule="VideoGamesApp" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="enP-na-MjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="51"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
