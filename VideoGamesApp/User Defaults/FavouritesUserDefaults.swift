@@ -14,6 +14,12 @@ protocol FavouritesUserDefaultsProtocol {
 }
 
 class FavouritesUserDefaults: BaseUserDefaults, FavouritesUserDefaultsProtocol {
+
+    override init() {
+        super.init()
+        super.addNewKey(key: .favourites, value: FavouritesDefaultsModel(favourites: []))
+    }
+
     func getFavourites<T>() -> Single<T> where T: FavouritesDefaultsModel {
         return super.retrieve(with: .favourites)
     }

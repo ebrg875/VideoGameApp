@@ -18,6 +18,11 @@ class FavouritesViewController: DefaultViewController<FavouritesPresenter> {
         self.setupCollectionView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter?.getFavourites()
+    }
+
     override func initAssociatedPresenter() {
         self.presenter = FavouritesPresenter()
         presenter?.delegate = self

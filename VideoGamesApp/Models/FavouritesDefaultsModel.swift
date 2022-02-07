@@ -13,10 +13,10 @@ class FavouritesDefaultsModel: Codable {
     enum CodingKeys: String, CodingKey {
         case favourites
     }
-//
-//    init(favourites: [GameDefaultsModel]) {
-//        self.favourites = favourites
-//    }
+
+    init(favourites: [GameDefaultsModel]) {
+        self.favourites = favourites
+    }
 }
 
 class GameDefaultsModel: Codable {

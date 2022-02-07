@@ -17,10 +17,14 @@ public class BaseUserDefaults {
     private let defaults: UserDefaults!
 
     init() {
-        defaults = UserDefaults()
+        self.defaults = UserDefaults()
     }
 
-    public var shared = BaseUserDefaults()
+    public func addNewKey<T: Codable>(key: UserDefaultsKeys, value: T) {
+        guard self.defaults.object(forKey: key.rawValue) as? Data == nil,
+              let data = try? JSONEncoder().encode(value) else { return }
+        self.defaults.set(data, forKey: key.rawValue)
+    }
 
     public func store<T: Codable>(with key: UserDefaultsKeys, value: T) -> Single<Void> {
         return Observable.create { [weak self] observer in
@@ -55,6 +59,7 @@ public class BaseUserDefaults {
 
 enum UserDefaultsError: Error {
     case invalidJson
+    case keyNotFound
 }
 
 extension UserDefaultsError: LocalizedError {
@@ -62,6 +67,8 @@ extension UserDefaultsError: LocalizedError {
         switch self {
         case .invalidJson:
             return NSLocalizedString("Error encountered while parsing JSON data", comment: "Invalid JSON")
+        case .keyNotFound:
+            return NSLocalizedString("Given key not found in User Defaults", comment: "Key not found")
         }
     }
 }

@@ -69,18 +69,18 @@ class GameDetailViewController: DefaultViewController<GameDetailPresenter> {
 extension GameDetailViewController: GameDetailPresenterDelegate {
     func onisFavouritedFetched(isFavourited: Bool) {
         self.isFavourited = isFavourited
-        let image = isFavourited ? UIImage(named: "hand.thumbsup.fill") : UIImage(named: "hand.thumbsup")
+        let image = isFavourited ? UIImage(systemName: "hand.thumbsup.fill") : UIImage(systemName: "hand.thumbsup")
         self.favouriteButton.setImage(image, for: .normal)
     }
 
     func onGameFavourited() {
         self.isFavourited = true
-        self.favouriteButton.setImage(UIImage(named: "hand.thumbsup.fill"), for: .normal)
+        self.favouriteButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
     }
 
     func onGameUnfavourited() {
         self.isFavourited = false
-        self.favouriteButton.setImage(UIImage(named: "hand.thumbsup"), for: .normal)
+        self.favouriteButton.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
     }
 
     func onGameDetailFetched(game: UIGameDetailEntity) {
