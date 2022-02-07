@@ -53,6 +53,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yb-mi-jf5">
+                                <rect key="frame" x="364" y="294" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="0cm-b8-jDy"/>
+                                    <constraint firstAttribute="height" constant="50" id="nVf-NI-qAa"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="hand.thumbsup" catalog="system"/>
+                                <connections>
+                                    <action selector="onFavouriteButtonTapped:" destination="Y6W-OH-hqX" eventType="touchDragInside" id="o0N-s6-rsJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,18 +72,21 @@
                             <constraint firstItem="bOW-cq-0fP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="2CY-pT-fhp"/>
                             <constraint firstItem="bOW-cq-0fP" firstAttribute="top" secondItem="UxC-S9-PtK" secondAttribute="bottom" constant="10" id="ANe-Nf-qhl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bOW-cq-0fP" secondAttribute="trailing" constant="20" id="Cpp-ZN-Kep"/>
+                            <constraint firstItem="3yb-mi-jf5" firstAttribute="bottom" secondItem="bk7-T0-5xW" secondAttribute="bottom" id="NeI-Ow-FJJ"/>
                             <constraint firstItem="UxC-S9-PtK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="QcC-p6-hcG"/>
                             <constraint firstItem="bk7-T0-5xW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="SKA-IJ-Fqy"/>
                             <constraint firstItem="UxC-S9-PtK" firstAttribute="top" secondItem="bk7-T0-5xW" secondAttribute="bottom" constant="10" id="dGN-AD-5yD"/>
                             <constraint firstItem="bk7-T0-5xW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dVf-Xe-SIf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bOW-cq-0fP" secondAttribute="bottom" id="icL-DV-N5e"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bk7-T0-5xW" secondAttribute="trailing" id="p9z-y5-AwZ"/>
+                            <constraint firstItem="3yb-mi-jf5" firstAttribute="trailing" secondItem="bk7-T0-5xW" secondAttribute="trailing" id="ueR-Q6-eNo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UxC-S9-PtK" secondAttribute="trailing" constant="20" id="wfy-A4-E2F"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q9X-Ve-O3n"/>
                     <connections>
                         <outlet property="descriptionTextView" destination="bOW-cq-0fP" id="m2Y-9A-p8Z"/>
+                        <outlet property="favouriteButton" destination="3yb-mi-jf5" id="MqY-vk-v5o"/>
                         <outlet property="imageView" destination="bk7-T0-5xW" id="mt7-3M-i6J"/>
                         <outlet property="nameLabel" destination="06O-Lu-KLH" id="OgE-xY-qFT"/>
                         <outlet property="ratingLabel" destination="Zpb-F4-C88" id="GzR-WB-yVf"/>
@@ -84,6 +99,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

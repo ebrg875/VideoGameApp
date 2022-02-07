@@ -9,4 +9,5 @@ import Foundation
 class AdapterProvider {
     static let getGamesListAdapter: GamesListAdapterProtocol = GamesListAdapter(gamesEndpoint: EndpointProvider.gamesEndpoint)
     static let getGameDetailAdapter: GameDetailAdapterProtocol = GameDetailAdapter(gameDetailEndpoint: EndpointProvider.gameDetailEndpoint)
+    static let favouritesListAdapter: FavouritesListAdapterProtocol = FavouritesListAdapter(favouritesDefaults: UserDefaultsProvider.favouritesDefaults)
 }

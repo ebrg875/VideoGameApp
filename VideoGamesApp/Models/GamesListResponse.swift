@@ -1,6 +1,6 @@
 //
 //  GamesListResponse.swift
-//  VideoGamesApp
+//  VideoGameApp
 //
 //  Created by emeksu.barug on 4.02.2022.
 //
